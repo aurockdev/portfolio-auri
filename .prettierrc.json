@@ -1,0 +1,10 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "insertSpaces": true,
+  "trimTrailingWhitespace": true,
+  "insertFinalNewline": true,
+  "singleQuote": true,
+  "semi": true,
+  "printWidth": 120
+}
