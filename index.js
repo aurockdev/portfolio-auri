@@ -3,14 +3,19 @@ import config from './utils/config.js';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { errorHandler } from './utils/error-handler.js';
+import { fileURLToPath } from 'url';
 import indexRouter from './routes/index.routes.js'; 
+import path from 'path';
 
-
+// Convierte la URL a una ruta de sistema de archivos
+const currentModulePath = fileURLToPath(import.meta.url);
+// Obtiene el directorio base del módulo actual
+const currentDirectory = path.dirname(currentModulePath);
 
 const app = express();
 
 app.set('view engine', 'ejs');
-
+app.set('views', path.join(currentDirectory, 'views')); 
 app.use('/', indexRouter);
 
 //Middlewares 
