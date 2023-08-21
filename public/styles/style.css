@@ -1,11 +1,30 @@
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+/* Importaciones de fuentes */ 
+@font-face {
+  font-family: 'Anonymous Pro';
+  src: url('../fonts/AnonymousPro-Regular.woff2');
+}
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Light.woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Light.woff2');
+}
 /* Estilos para pantallas pequeñas (dispositivos móviles) */
 @media (max-width: 768px) {
+  .hero img {
+    height: 381px;
+    width: 341px;
+  }
+
   .contact-links{
     flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .contact-links ul {
@@ -13,22 +32,46 @@
   }
 
   .contact-links img {
-    width: 300px;
+    width: 340px;
+    height: 319px;
+  }
+
+  .skills-container {
+    padding: 24px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .languageBtn {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .languageToggle {
+    margin-right: 0;
+    height: 48px;
   }
 }
 
+
+/* Estilos generales */
+:root {
+  --main-color: #68A063;
+  --background-dark: #303030;
+  --background-light: #444;
+  --text-color: #f8faf4;
+}
+
+
 * {
-  color: #68A063;
+  color: var(--main-color);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Anonymous Pro', monospace; 
-}
-
-
-body {
-  background: rgb(48,48,48);
-  background: linear-gradient(180deg, rgba(48,48,48,1) 32%, rgba(79,79,79,1) 66%, rgb(59, 59, 59) 100%);
 }
 
 h2 {
@@ -37,29 +80,60 @@ h2 {
 }
 
 h2, h3 {
-  font-family: 'Courier New', monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p{
   font-family: 'Lato', sans-serif;
-  font-weight: bold;
-  color: #f8faf4;
+  color: var(--text-color);
 }
 
-/*----------BODY------------*/ 
 
+body {
+  background: rgb(48,48,48);
+  background: linear-gradient(180deg, rgba(48,48,48,1) 32%, rgba(79,79,79,1) 66%, rgb(59, 59, 59) 100%);
+}
+
+/*BARRA SCROLL*/
+.container {
+  background: #9994;
+  width: 100%;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  box-shadow: 0 0 5px var(--background-light);
+  background: var(--main-color);
+}
+
+@keyframes resize {
+  from { width: 0% }
+  to { width: 100% }
+}
+
+.bar {
+  animation: resize auto linear forwards;
+  animation-timeline: scroll(root block);
+}
+
+/* Encabezado */
 header {
   padding: 10px;
   text-align: center;
-  /* Otros estilos para el encabezado */
 }
 
 nav {
   padding: 5px;
   text-align: center;
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
 }
+
 
 nav ul {
   list-style: none;
@@ -77,7 +151,7 @@ nav li a {
   text-decoration: none;
   transition: underline 0.2s;
 }
-
+ /* INICIO */
 
 #inicio {
   display: flex;
@@ -125,9 +199,6 @@ nav li a {
   flex-wrap: wrap;
 }
 
-.hero img {
-  width: 400px;
-}
 
 .hero p {
     margin: 20px 0; /* Margen arriba y abajo */
@@ -140,7 +211,7 @@ nav li a {
 
 /*-----------------PROYECTOS------------------------*/
 #proyectos {
-  background-color: #303030;
+  background-color: var(--background-dark);
   padding: 80px 0;
   display: flex;
   flex-wrap: wrap;
@@ -154,7 +225,7 @@ nav li a {
 #proyectos h2 {
   font-size: 32px;
   margin-bottom: 20px; /* Añadido para ajustar el espacio bajo el h2 */
-  color: #68A063;
+  color: var(--main-color);
 }
 
 #proyectos div{
@@ -167,7 +238,7 @@ nav li a {
 
 .proyectos div {
   width: 400px;
-  background-color: #444;
+  background-color: var(--background-light);
   padding: 20px;
   border-radius: 8px;
 }
@@ -179,12 +250,12 @@ nav li a {
 
 
 .equipo {
-  color: #68A063;
+  color: var(--main-color);
   font-weight: bold;
 }
 
 .proyecto-nombre {
-  color: #68A063;
+  color: var(--main-color);
   font-weight: bold;
 }
 
@@ -246,6 +317,7 @@ nav li a {
   display: flex;
   justify-content: center;
   gap: 40px;
+  padding: 24px;
 }
 
 .skills-column {
@@ -264,7 +336,7 @@ nav li a {
   margin-bottom: 10px;
   padding-left: 30px;
   position: relative;
-  color: #f8faf4;
+  color: var(--text-color);
 }
 
 .skills-list li::before {
@@ -272,10 +344,10 @@ nav li a {
   position: absolute;
   left: 0;
   top: 0;
-  color: #68A063;
+  color: var(--main-color);
 }
 
-/*------------Contact Me--------------*/
+/*------------Contacto--------------*/
 
 #contactos {
   display: flex;
@@ -324,6 +396,7 @@ nav li a {
   text-decoration: none;
   transition: underline 0.2s;
   color: #b3cfb0;
+  font-weight: bold;
 }
 
 .contact-links a:hover {
@@ -335,7 +408,40 @@ nav li a {
 footer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100px; 
-  background-color: #444; 
+  background-color: var(--background-light); 
+}
+
+
+
+.languageBtn {
+  display: flex;
+  align-items: center; 
+}
+
+.languageToggle {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 20px; 
+}
+
+
+/* Estilo cuando se pasa el cursor sobre el botón */
+.languageToggle:hover {
+  background-color: #509451;
+  transform: scale(1.05);
+}
+
+/* Estilo cuando se presiona el botón */
+.languageToggle:active {
+  background-color: #406b44;
+  transform: scale(0.95);
 }
