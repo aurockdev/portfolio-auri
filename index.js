@@ -30,7 +30,7 @@ app.use(errorHandler);
 
 // Start Server
 const port = config.PORT || 3000;
-const server = app.listen(port, function () {
+const server = app.listen(port, '0.0.0.0', () => {
   console.info(`Server running on port ${port}`);
 });
 
