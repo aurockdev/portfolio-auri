@@ -23,7 +23,7 @@ dotenv.config();
 // Definir el esquema de validación para las variables de entorno
 const processEnvSchema = Joi.object({
   //APP Env Vars 
-  APP_PORT: Joi.number().port().required(),
+  PORT: Joi.number().port().required(),
   APP_NAME: Joi.string().required(),
 
   //Mailer Vars 

@@ -29,7 +29,7 @@ app.use('/', indexRouter);
 app.use(errorHandler);
 
 // Start Server
-const port = config.APP_PORT || 3000;
+const port = config.PORT || 3000;
 const server = app.listen(port, function () {
   console.info(`Server running on port ${port}`);
 });
