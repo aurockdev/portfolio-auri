@@ -54,6 +54,9 @@
     margin-right: 0;
     height: 48px;
   }
+  footer {
+    text-align: center;
+  }
 }
 
 
@@ -412,6 +415,7 @@ footer {
   align-items: center;
   height: 100px; 
   background-color: var(--background-light); 
+  text-align: center;
 }
 
 
